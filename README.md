@@ -1,5 +1,11 @@
-# closedmtl
+# BackToMTL
 This is an open-source project to extract text, translate the text, and automatically replace and redraw the image to fit the text. 
+
+## Repository boundaries
+
+BackToMTL owns the translation backend, image processing, OCR, detection, rendering, and related training code. [OpenMTL](https://github.com/kusicheng/openmtl) owns the frontend and user-facing application. [RagMTL](https://github.com/kusicheng/ragmtl) owns MAGRA retrieval and benchmarking.
+
+These are separate repositories. Keep implementation in its owning repository; share functionality through explicit imports, supported APIs, or a deliberately abstracted shared component.
 
 ## Summary of pipeline
 Unzip files -> model extracts text bubble boxes and segmentation masks -> feed into local/online LLM with specified json format -> check and validate response -> segmentation mask areas are erased and text bubbles are redrawn to fit text -> paste text in. 
